@@ -7,7 +7,7 @@ export default function Home() {
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
 
-  // Start the camera when the modal is opened
+  // to start camera
   useEffect(() => {
     if (showCamera && navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
       async function startCamera() {
@@ -18,7 +18,7 @@ export default function Home() {
     }
   }, [showCamera]);
 
-  // Capture the current frame and send it to the backend
+  // to capture current frame
   const captureFrame = async () => {
     const canvas = canvasRef.current;
     const video = videoRef.current;
@@ -44,7 +44,7 @@ export default function Home() {
     }, 'image/jpeg');
   };
 
-  // Handle file upload and send it to the backend
+  // to upload file from local computer and send it to backend
   const handleFileUpload = async (event) => {
     const file = event.target.files[0];
     const formData = new FormData();
@@ -67,7 +67,7 @@ export default function Home() {
       </h1>
 
       <div className="flex flex-col md:flex-row justify-center items-center gap-6 w-full max-w-4xl">
-        {/* Button to open camera */}
+        
         <button
           onClick={() => setShowCamera(true)}
           className="bg-indigo-600 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-indigo-700 transition duration-300 w-full md:w-auto text-center"
@@ -75,7 +75,7 @@ export default function Home() {
           Capture Image with Camera
         </button>
 
-        {/* File Upload Option */}
+        
         <label className="bg-indigo-600 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-indigo-700 transition duration-300 cursor-pointer w-full md:w-auto text-center">
           Upload Image from Device
           <input
